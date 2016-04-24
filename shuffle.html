@@ -4,25 +4,62 @@
 	<title>Fisher-Yates Shuffle Method</title>
 </head>
 <body>
+	
 
 	<script type="text/javascript">
 		
-		// DECLARING MY VARIABLES
+		// DECLARING MY VARIABLES USED FOR THE SHUFFLE
+		// var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+		// var rand;
+		// var holder;
+
+		// CREATING OUTER FOR LOOP TO REPEAT THE SHUFFLING PROCESS FOUND WITHIN
+		// 	for(j = 0; j < 7; j++) {
+		// 		// RECONSTRUCTING THE FISHER-YATES SHUFFLING METHOD
+		// 		for(i = myArray.length; i > 0; i--) { 
+		// 			rand = Math.floor(Math.random() * i);
+		// 			holder = myArray[rand];
+		// 			myArray[rand] = myArray[(i-1)];
+		// 			myArray[(i-1)] = holder;		
+		// 		}
+		// 		console.log(myArray);
+		// 	}
+
+		
+
 		var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 		var rand;
 		var holder;
 
-		// CREATING OUTER FOR LOOP TO REPEAT THE SHUFFLING PROCESS FOUND WITHIN
-		for(j = 0; j < 7; j++) {
-			// RECONSTRUCTING THE FISHER-YATES SHUFFLING METHOD
-			for(i = myArray.length; i > 0; i--) { 
-				rand = Math.floor(Math.random() * i);
-				holder = myArray[rand];
-				myArray[rand] = myArray[(i-1)];
-				myArray[(i-1)] = holder;		
+
+	// CREATING A NEW CUSTOM METHOD FOR THE ARRAY OBJECT TO SHUFFLE IT (IN CASE I USED IT MULTIPLE TIMES)
+
+		Array.prototype.shuffle = function() {
+
+			for(j = 0; j < 7; j++) {
+				// RECONSTRUCTING THE FISHER-YATES SHUFFLING METHOD
+				for(i = this.length; i > 0; i--) { 
+					rand = Math.floor(Math.random() * i);
+					holder = this[rand];
+					this[rand] = this[(i-1)];
+					this[(i-1)] = holder;		
+				}
 			}
-			console.log(myArray);
+			return this
 		}
+	
+		document.write(myArray.shuffle());
+
+
+
+
+
+
+		
+
+
+		
+
 		
 	</script>
 </body>
