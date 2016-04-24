@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fisher-Yates Shuffle Method</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		// DECLARING MY VARIABLES
+		var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+		var rand;
+		var holder;
+
+		// CREATING OUTER FOR LOOP TO REPEAT THE SHUFFLING PROCESS FOUND WITHIN
+		for(j = 0; j < 7; j++) {
+			// RECONSTRUCTING THE FISHER-YATES SHUFFLING METHOD
+			for(i = myArray.length; i > 0; i--) { 
+				rand = Math.floor(Math.random() * i);
+				holder = myArray[rand];
+				myArray[rand] = myArray[(i-1)];
+				myArray[(i-1)] = holder;		
+			}
+			console.log(myArray);
+		}
+		
+	</script>
+</body>
+</html>
