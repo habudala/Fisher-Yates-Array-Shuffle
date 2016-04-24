@@ -4,6 +4,8 @@
 	<title>Fisher-Yates Shuffle Method</title>
 </head>
 <body>
+	<div id="wrapper"></div>
+	<input type="button" id="button" value="shuffle"/>
 	
 
 	<script type="text/javascript">
@@ -26,10 +28,25 @@
 		// 	}
 
 		
-
+	// DECLARING MY VARIABLES I'M GOING TO UTILIZE FOR THE SHUFFLE METHOD
 		var myArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 		var rand;
 		var holder;
+    // DECLARING VARIABLES TO ATTACH INFORMATION TO THE DOCUMENT OBJECT
+    	var wrapper = document.getElementById("wrapper");
+    	var button = document.getElementById("button");
+    	var newArray;
+    	var newContent;
+    	var content = wrapper.innerHTML = "<h2>" + myArray + "</h2>";
+    	button.addEventListener("click",myShuffle,false);
+
+    	function myShuffle () {
+    		myArray = myArray.shuffle();
+    		content = wrapper.innerHTML = "<h2>" + myArray + "</h2>"
+
+    		
+
+    	}
 
 
 	// CREATING A NEW CUSTOM METHOD FOR THE ARRAY OBJECT TO SHUFFLE IT (IN CASE I USED IT MULTIPLE TIMES)
@@ -47,8 +64,8 @@
 			}
 			return this
 		}
-	
-		document.write(myArray.shuffle());
+		
+		// document.write(myArray.shuffle());
 
 
 
